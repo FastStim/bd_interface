@@ -1,0 +1,13 @@
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\pgsqlProject.exe.config
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\pgsqlProject.exe
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\pgsqlProject.pdb
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\Npgsql.dll
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\Npgsql.xml
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.main.resources
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.Properties.Resources.resources
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.exe
+C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.pdb
