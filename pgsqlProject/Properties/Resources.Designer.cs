@@ -70,16 +70,7 @@ namespace pgsqlProject.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 192.168.1.2.
-        /// </summary>
-        internal static string ip {
-            get {
-                return ResourceManager.GetString("ip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на FastStim.
+        ///   Ищет локализованную строку, похожую на login_user.
         /// </summary>
         internal static string login {
             get {
@@ -88,7 +79,7 @@ namespace pgsqlProject.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на sormat7511.
+        ///   Ищет локализованную строку, похожую на login_user.
         /// </summary>
         internal static string password {
             get {
@@ -102,6 +93,35 @@ namespace pgsqlProject.Properties {
         internal static string port {
             get {
                 return ResourceManager.GetString("port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 192.168.1.2.
+        /// </summary>
+        internal static string server {
+            get {
+                return ResourceManager.GetString("server", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sign_in_32 {
+            get {
+                object obj = ResourceManager.GetObject("sign_in_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sign_out_32 {
+            get {
+                object obj = ResourceManager.GetObject("sign_out_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
