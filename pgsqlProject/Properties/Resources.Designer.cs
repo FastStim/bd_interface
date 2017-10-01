@@ -70,6 +70,16 @@ namespace pgsqlProject.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_32 {
+            get {
+                object obj = ResourceManager.GetObject("edit_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на login_user.
         /// </summary>
         internal static string login {
@@ -84,6 +94,16 @@ namespace pgsqlProject.Properties {
         internal static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_square_o_32 {
+            get {
+                object obj = ResourceManager.GetObject("plus_square_o_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -121,6 +141,16 @@ namespace pgsqlProject.Properties {
         internal static System.Drawing.Bitmap sign_out_32 {
             get {
                 object obj = ResourceManager.GetObject("sign_out_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_o_32 {
+            get {
+                object obj = ResourceManager.GetObject("trash_o_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

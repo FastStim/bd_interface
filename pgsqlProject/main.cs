@@ -12,8 +12,6 @@ namespace pgsqlProject
 {
     public partial class main : Form
     {
-        procedure sql;
-
         public main()
         {
             frmLogin frm = new frmLogin();
@@ -34,8 +32,6 @@ namespace pgsqlProject
             sslDatabase.Text = config.database;
             sslLogin.Text = config.login;
             sslMode.Text = config.mode;
-
-            sql = new procedure();
         }
 
         private void tsmExit_Click(object sender, EventArgs e)

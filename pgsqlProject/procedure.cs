@@ -26,10 +26,21 @@ namespace pgsqlProject
         public DataTable login(string login, string password)
         {
             DataTable dtData = new DataTable();
-
             conn.Open();
 
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.user WHERE login = '" + login + "' and password = '" + sha256_hash(password + "@216") + "'", conn);
+            dtData.Load(cmd.ExecuteReader());
+
+            conn.Close();
+            return dtData;
+        }
+
+        public DataTable getSDriver()
+        {
+            DataTable dtData = new DataTable();
+            conn.Open();
+
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto_personnel", conn);
             dtData.Load(cmd.ExecuteReader());
 
             conn.Close();
@@ -46,7 +57,7 @@ namespace pgsqlProject
             if (dr.Read())
             {
                 boolfound = true;
-                
+
                 Console.WriteLine("Подключение успешно");
             }
             if (boolfound == false)
@@ -56,6 +67,9 @@ namespace pgsqlProject
             dr.Close();
 
             conn.Close();
+
+            Console.WriteLine(sha256_hash("sormat7511@216"));
+
             return boolfound;
         }
 

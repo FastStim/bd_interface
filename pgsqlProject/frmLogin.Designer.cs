@@ -89,6 +89,7 @@
             // bExit
             // 
             this.bExit.BackgroundImage = global::pgsqlProject.Properties.Resources.sign_out_32;
+            this.bExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bExit.Location = new System.Drawing.Point(166, 3);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(32, 32);
@@ -100,6 +101,7 @@
             // bLogin
             // 
             this.bLogin.BackgroundImage = global::pgsqlProject.Properties.Resources.sign_in_32;
+            this.bLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bLogin.Location = new System.Drawing.Point(128, 3);
             this.bLogin.Name = "bLogin";
             this.bLogin.Size = new System.Drawing.Size(32, 32);
