@@ -68,11 +68,13 @@ namespace pgsqlProject
 
         private void tmsSDriver_Click(object sender, EventArgs e)
         {
-            closeMDI();
+            //closeMDI();
 
-            frmSDriver frmMDI = new frmSDriver();
-            frmMDI.MdiParent = this;
-            frmMDI.Show();
+            //frmSDriver frmMDI = new frmSDriver();
+            //frmMDI.MdiParent = this;
+            //frmMDI.Show();
+            frmSDriver frm = new frmSDriver();
+            frm.ShowDialog();
         }
     }
 }

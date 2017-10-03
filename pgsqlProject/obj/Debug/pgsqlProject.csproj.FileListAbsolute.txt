@@ -27,3 +27,4 @@ C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.pdb
 C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmLogin.resources
 C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmJournal.resources
 C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmSDriver.resources
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmAddDriver.resources
