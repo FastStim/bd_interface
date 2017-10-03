@@ -40,11 +40,28 @@ namespace pgsqlProject
             DataTable dtData = new DataTable();
             conn.Open();
 
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto_personnel", conn);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto_personnel ORDER BY first_name", conn);
             dtData.Load(cmd.ExecuteReader());
 
             conn.Close();
             return dtData;
+        }
+
+        public void setSDriver(int id, string firstName, string lastName, string partherName)
+        {
+            string query = "";
+            conn.Open();
+
+            if (id == -1)
+                query = "INSERT INTO public.auto_personnel (first_name, last_name, parther_name) VALUES ('" + firstName + "','" + lastName + "','" + partherName + "')";
+            else
+                query = "UPDATE public.auto_personnel SET first_name = '" + firstName + "', last_name = '" + lastName + "', parther_name = '" + partherName + "' where id = " + id + "";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
 
         public bool test()

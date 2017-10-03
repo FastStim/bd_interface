@@ -76,5 +76,10 @@ namespace pgsqlProject
             frmSDriver frm = new frmSDriver();
             frm.ShowDialog();
         }
+
+        private void main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            closeMDI();
+        }
     }
 }

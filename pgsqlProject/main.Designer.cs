@@ -33,6 +33,7 @@
             this.tmsLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsDirectory = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsSDriver = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsJournal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReport = new System.Windows.Forms.ToolStripMenuItem();
             this.ssInfo = new System.Windows.Forms.StatusStrip();
@@ -40,7 +41,6 @@
             this.sslLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslDatabase = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tmsSDriver = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.ssInfo.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,13 @@
             this.tmsDirectory.Name = "tmsDirectory";
             this.tmsDirectory.Size = new System.Drawing.Size(94, 20);
             this.tmsDirectory.Text = "&Справочники";
+            // 
+            // tmsSDriver
+            // 
+            this.tmsSDriver.Name = "tmsSDriver";
+            this.tmsSDriver.Size = new System.Drawing.Size(202, 22);
+            this.tmsSDriver.Text = "Справочник водителей";
+            this.tmsSDriver.Click += new System.EventHandler(this.tmsSDriver_Click);
             // 
             // tmsJournal
             // 
@@ -138,13 +145,6 @@
             this.sslDatabase.Name = "sslDatabase";
             this.sslDatabase.Size = new System.Drawing.Size(4, 17);
             // 
-            // tmsSDriver
-            // 
-            this.tmsSDriver.Name = "tmsSDriver";
-            this.tmsSDriver.Size = new System.Drawing.Size(202, 22);
-            this.tmsSDriver.Text = "Справочник водителей";
-            this.tmsSDriver.Click += new System.EventHandler(this.tmsSDriver_Click);
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +157,7 @@
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Главная автопарк";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.main_FormClosing);
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();
             this.ssInfo.ResumeLayout(false);
