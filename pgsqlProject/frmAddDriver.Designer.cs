@@ -76,6 +76,7 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(100, 20);
             this.tbFirstName.TabIndex = 1;
+            this.tbFirstName.TextChanged += new System.EventHandler(this.changeSave);
             // 
             // tbLastName
             // 
@@ -84,6 +85,7 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(100, 20);
             this.tbLastName.TabIndex = 2;
+            this.tbLastName.TextChanged += new System.EventHandler(this.changeSave);
             // 
             // tbPartherName
             // 
@@ -92,6 +94,7 @@
             this.tbPartherName.Name = "tbPartherName";
             this.tbPartherName.Size = new System.Drawing.Size(100, 20);
             this.tbPartherName.TabIndex = 3;
+            this.tbPartherName.TextChanged += new System.EventHandler(this.changeSave);
             // 
             // pButton
             // 
@@ -125,6 +128,7 @@
             this.bSave.TabIndex = 4;
             this.ttInfo.SetToolTip(this.bSave, "Сохранить");
             this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // frmAddDriver
             // 

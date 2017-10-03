@@ -19,6 +19,7 @@ namespace pgsqlProject
         {
             InitializeComponent();
 
+            enableButton();
             setData();
         }
 
@@ -78,10 +79,10 @@ namespace pgsqlProject
 
         private void bEdit_Click(object sender, EventArgs e)
         {
-            editPersonel();
+            editPersonnel();
         }
 
-        private void editPersonel()
+        private void editPersonnel()
         {
             if (dtData != null && dgvData != null && dgvData.RowCount > 0 && dgvData.CurrentRow.Index != -1)
             {
@@ -116,6 +117,12 @@ namespace pgsqlProject
                 }
             }
             
+        }
+
+        private void dgvData_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1 && config.mode == "АДМ")
+                editPersonnel();
         }
     }
 }

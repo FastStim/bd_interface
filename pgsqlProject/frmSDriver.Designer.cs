@@ -35,16 +35,16 @@
             this.bEdit = new System.Windows.Forms.Button();
             this.bAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPartherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsData = new System.Windows.Forms.BindingSource(this.components);
             this.pFilter = new System.Windows.Forms.Panel();
             this.tbPatherName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.pGrid = new System.Windows.Forms.Panel();
-            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPartherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
@@ -135,6 +135,36 @@
             this.dgvData.Size = new System.Drawing.Size(304, 347);
             this.dgvData.TabIndex = 0;
             this.dgvData.TabStop = false;
+            this.dgvData.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_CellMouseDoubleClick);
+            // 
+            // cId
+            // 
+            this.cId.DataPropertyName = "id";
+            this.cId.HeaderText = "id";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Visible = false;
+            // 
+            // cFirstName
+            // 
+            this.cFirstName.DataPropertyName = "first_name";
+            this.cFirstName.HeaderText = "Имя";
+            this.cFirstName.Name = "cFirstName";
+            this.cFirstName.ReadOnly = true;
+            // 
+            // cLastName
+            // 
+            this.cLastName.DataPropertyName = "last_name";
+            this.cLastName.HeaderText = "Фамилия";
+            this.cLastName.Name = "cLastName";
+            this.cLastName.ReadOnly = true;
+            // 
+            // cPartherName
+            // 
+            this.cPartherName.DataPropertyName = "parther_name";
+            this.cPartherName.HeaderText = "Отчество";
+            this.cPartherName.Name = "cPartherName";
+            this.cPartherName.ReadOnly = true;
             // 
             // pFilter
             // 
@@ -179,35 +209,6 @@
             this.pGrid.Name = "pGrid";
             this.pGrid.Size = new System.Drawing.Size(304, 347);
             this.pGrid.TabIndex = 2;
-            // 
-            // cId
-            // 
-            this.cId.DataPropertyName = "id";
-            this.cId.HeaderText = "id";
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Visible = false;
-            // 
-            // cFirstName
-            // 
-            this.cFirstName.DataPropertyName = "first_name";
-            this.cFirstName.HeaderText = "Имя";
-            this.cFirstName.Name = "cFirstName";
-            this.cFirstName.ReadOnly = true;
-            // 
-            // cLastName
-            // 
-            this.cLastName.DataPropertyName = "last_name";
-            this.cLastName.HeaderText = "Фамилия";
-            this.cLastName.Name = "cLastName";
-            this.cLastName.ReadOnly = true;
-            // 
-            // cPartherName
-            // 
-            this.cPartherName.DataPropertyName = "parther_name";
-            this.cPartherName.HeaderText = "Отчество";
-            this.cPartherName.Name = "cPartherName";
-            this.cPartherName.ReadOnly = true;
             // 
             // frmSDriver
             // 
