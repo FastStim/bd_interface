@@ -18,74 +18,110 @@ namespace pgsqlProject
             connect();
         }
 
-        void connect()
+        private void connect()
         {
             conn = new NpgsqlConnection("Server="+config.server+ "; Port=" + config.port + "; User Id=" + config.login + "; Password=" + config.password + "; Database=" + config.database + "");
+        }
+
+        private bool openConnect()
+        {
+            bool error = true;
+
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                error = false;
+            }
+
+            return error;
+        }
+
+        private bool closeConnect()
+        {
+            bool error = true;
+
+            try
+            {
+                conn.Close();
+            }
+            catch
+            {
+                error = false;
+            }
+
+            return error;
         }
 
         public DataTable login(string login, string password)
         {
             DataTable dtData = new DataTable();
-            conn.Open();
-
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.user WHERE login = '" + login + "' and password = '" + sha256_hash(password + "@216") + "'", conn);
-            dtData.Load(cmd.ExecuteReader());
-
-            conn.Close();
+            if (openConnect())
+            { 
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.user WHERE login = '" + login + "' and password = '" + sha256_hash(password + "@216") + "'", conn);
+                dtData.Load(cmd.ExecuteReader());
+                closeConnect();
+            }
+            
             return dtData;
         }
 
         public DataTable getSDriver()
         {
             DataTable dtData = new DataTable();
-            conn.Open();
+            if (openConnect())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto_personnel ORDER BY first_name", conn);
+                dtData.Load(cmd.ExecuteReader());
 
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto_personnel ORDER BY first_name", conn);
-            dtData.Load(cmd.ExecuteReader());
+                closeConnect();
+            }
 
-            conn.Close();
             return dtData;
         }
 
         public void setSDriver(int id, string firstName, string lastName, string partherName)
         {
-            string query = "";
-            conn.Open();
+            if (openConnect())
+            {
+                string query = "";
 
-            if (id == -1)
-                query = "INSERT INTO public.auto_personnel (first_name, last_name, parther_name) VALUES ('" + firstName + "','" + lastName + "','" + partherName + "')";
-            else
-                query = "UPDATE public.auto_personnel SET first_name = '" + firstName + "', last_name = '" + lastName + "', parther_name = '" + partherName + "' where id = " + id + "";
+                if (id == -1)
+                    query = "INSERT INTO public.auto_personnel (first_name, last_name, parther_name) VALUES ('" + firstName + "','" + lastName + "','" + partherName + "')";
+                else
+                    query = "UPDATE public.auto_personnel SET first_name = '" + firstName + "', last_name = '" + lastName + "', parther_name = '" + partherName + "' where id = " + id + "";
 
-            NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
 
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
+                closeConnect();
+            }
         }
 
         public bool test()
         {
             bool boolfound = false;
-            conn.Open();
-
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.user", conn);
-            NpgsqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+            if (openConnect())
             {
-                boolfound = true;
 
-                Console.WriteLine("Подключение успешно");
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.user", conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    boolfound = true;
+
+                    Console.WriteLine("Подключение успешно");
+                }
+                if (boolfound == false)
+                {
+                    Console.WriteLine("Данные не полученны");
+                }
+                dr.Close();
+
+                closeConnect();
             }
-            if (boolfound == false)
-            {
-                Console.WriteLine("Данные не полученны");
-            }
-            dr.Close();
-
-            conn.Close();
-
-            Console.WriteLine(sha256_hash("sormat7511@216"));
 
             return boolfound;
         }
