@@ -36,3 +36,4 @@ C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProj
 C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.frmAddAuto.resources
 C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmAddAuto.resources
 C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmSAuto.resources
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmSRoutes.resources

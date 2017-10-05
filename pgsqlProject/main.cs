@@ -87,5 +87,11 @@ namespace pgsqlProject
             frmSAuto frm = new frmSAuto();
             frm.ShowDialog();
         }
+
+        private void tmsSRoutes_Click(object sender, EventArgs e)
+        {
+            frmSRoutes frm = new frmSRoutes();
+            frm.ShowDialog();
+        }
     }
 }

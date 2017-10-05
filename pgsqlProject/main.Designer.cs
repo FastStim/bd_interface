@@ -34,6 +34,8 @@
             this.tsmExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsSDriver = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsSAuto = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsSRoutes = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsJournal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReport = new System.Windows.Forms.ToolStripMenuItem();
             this.ssInfo = new System.Windows.Forms.StatusStrip();
@@ -41,7 +43,6 @@
             this.sslLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslDatabase = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tmsSAuto = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.ssInfo.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +87,8 @@
             // 
             this.tmsDirectory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmsSDriver,
-            this.tmsSAuto});
+            this.tmsSAuto,
+            this.tmsSRoutes});
             this.tmsDirectory.Name = "tmsDirectory";
             this.tmsDirectory.Size = new System.Drawing.Size(94, 20);
             this.tmsDirectory.Text = "&Справочники";
@@ -97,6 +99,20 @@
             this.tmsSDriver.Size = new System.Drawing.Size(219, 22);
             this.tmsSDriver.Text = "Справочник водителей";
             this.tmsSDriver.Click += new System.EventHandler(this.tmsSDriver_Click);
+            // 
+            // tmsSAuto
+            // 
+            this.tmsSAuto.Name = "tmsSAuto";
+            this.tmsSAuto.Size = new System.Drawing.Size(219, 22);
+            this.tmsSAuto.Text = "Справочник автомобилей";
+            this.tmsSAuto.Click += new System.EventHandler(this.tmsSAuto_Click);
+            // 
+            // tmsSRoutes
+            // 
+            this.tmsSRoutes.Name = "tmsSRoutes";
+            this.tmsSRoutes.Size = new System.Drawing.Size(219, 22);
+            this.tmsSRoutes.Text = "Справочник маршрутов";
+            this.tmsSRoutes.Click += new System.EventHandler(this.tmsSRoutes_Click);
             // 
             // tmsJournal
             // 
@@ -147,13 +163,6 @@
             this.sslDatabase.Name = "sslDatabase";
             this.sslDatabase.Size = new System.Drawing.Size(4, 17);
             // 
-            // tmsSAuto
-            // 
-            this.tmsSAuto.Name = "tmsSAuto";
-            this.tmsSAuto.Size = new System.Drawing.Size(219, 22);
-            this.tmsSAuto.Text = "Справочник автомобилей";
-            this.tmsSAuto.Click += new System.EventHandler(this.tmsSAuto_Click);
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +201,7 @@
         private System.Windows.Forms.ToolStripStatusLabel sslMode;
         private System.Windows.Forms.ToolStripMenuItem tmsSDriver;
         private System.Windows.Forms.ToolStripMenuItem tmsSAuto;
+        private System.Windows.Forms.ToolStripMenuItem tmsSRoutes;
     }
 }
 
