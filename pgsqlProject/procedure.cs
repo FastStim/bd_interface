@@ -73,7 +73,11 @@ namespace pgsqlProject
             DataTable dtData = new DataTable();
             if (openConnect())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto_personnel ORDER BY first_name", conn);
+                string query;
+                query =  "SELECT a.*, CASE WHEN b.id is null THEN 0 ELSE 1 END e_car FROM public.auto_personnel a";
+                query += " LEFT JOIN public.auto b on b.personnel_id = a.id";
+                query += " ORDER BY first_name";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
                 dtData.Load(cmd.ExecuteReader());
 
                 closeConnect();

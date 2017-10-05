@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pButton = new System.Windows.Forms.Panel();
+            this.lColorL = new System.Windows.Forms.Label();
+            this.pColor = new System.Windows.Forms.Panel();
             this.tbExit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
             this.bEdit = new System.Windows.Forms.Button();
             this.bAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPartherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsData = new System.Windows.Forms.BindingSource(this.components);
             this.pFilter = new System.Windows.Forms.Panel();
             this.tbPatherName = new System.Windows.Forms.TextBox();
@@ -46,8 +45,11 @@
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.pGrid = new System.Windows.Forms.Panel();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.pColor = new System.Windows.Forms.Panel();
-            this.lColorL = new System.Windows.Forms.Label();
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPartherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
@@ -68,6 +70,23 @@
             this.pButton.Name = "pButton";
             this.pButton.Size = new System.Drawing.Size(304, 40);
             this.pButton.TabIndex = 99;
+            // 
+            // lColorL
+            // 
+            this.lColorL.AutoSize = true;
+            this.lColorL.Location = new System.Drawing.Point(38, 5);
+            this.lColorL.Name = "lColorL";
+            this.lColorL.Size = new System.Drawing.Size(89, 26);
+            this.lColorL.TabIndex = 9;
+            this.lColorL.Text = "Водители\r\nбез автомобиля";
+            // 
+            // pColor
+            // 
+            this.pColor.BackColor = System.Drawing.Color.DarkKhaki;
+            this.pColor.Location = new System.Drawing.Point(12, 8);
+            this.pColor.Name = "pColor";
+            this.pColor.Size = new System.Drawing.Size(20, 20);
+            this.pColor.TabIndex = 8;
             // 
             // tbExit
             // 
@@ -131,7 +150,16 @@
             this.cId,
             this.cFirstName,
             this.cLastName,
-            this.cPartherName});
+            this.cPartherName,
+            this.eCar});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.MultiSelect = false;
@@ -146,35 +174,6 @@
             this.dgvData.TabStop = false;
             this.dgvData.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_CellMouseDoubleClick);
             this.dgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvData_RowPostPaint);
-            // 
-            // cId
-            // 
-            this.cId.DataPropertyName = "id";
-            this.cId.HeaderText = "id";
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Visible = false;
-            // 
-            // cFirstName
-            // 
-            this.cFirstName.DataPropertyName = "first_name";
-            this.cFirstName.HeaderText = "Имя";
-            this.cFirstName.Name = "cFirstName";
-            this.cFirstName.ReadOnly = true;
-            // 
-            // cLastName
-            // 
-            this.cLastName.DataPropertyName = "last_name";
-            this.cLastName.HeaderText = "Фамилия";
-            this.cLastName.Name = "cLastName";
-            this.cLastName.ReadOnly = true;
-            // 
-            // cPartherName
-            // 
-            this.cPartherName.DataPropertyName = "parther_name";
-            this.cPartherName.HeaderText = "Отчество";
-            this.cPartherName.Name = "cPartherName";
-            this.cPartherName.ReadOnly = true;
             // 
             // pFilter
             // 
@@ -220,22 +219,42 @@
             this.pGrid.Size = new System.Drawing.Size(304, 347);
             this.pGrid.TabIndex = 2;
             // 
-            // pColor
+            // cId
             // 
-            this.pColor.BackColor = System.Drawing.Color.DarkKhaki;
-            this.pColor.Location = new System.Drawing.Point(12, 8);
-            this.pColor.Name = "pColor";
-            this.pColor.Size = new System.Drawing.Size(20, 20);
-            this.pColor.TabIndex = 8;
+            this.cId.DataPropertyName = "id";
+            this.cId.HeaderText = "id";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Visible = false;
             // 
-            // lColorL
+            // cFirstName
             // 
-            this.lColorL.AutoSize = true;
-            this.lColorL.Location = new System.Drawing.Point(38, 5);
-            this.lColorL.Name = "lColorL";
-            this.lColorL.Size = new System.Drawing.Size(89, 26);
-            this.lColorL.TabIndex = 9;
-            this.lColorL.Text = "Водители\r\nбез автомобиля";
+            this.cFirstName.DataPropertyName = "first_name";
+            this.cFirstName.HeaderText = "Имя";
+            this.cFirstName.Name = "cFirstName";
+            this.cFirstName.ReadOnly = true;
+            // 
+            // cLastName
+            // 
+            this.cLastName.DataPropertyName = "last_name";
+            this.cLastName.HeaderText = "Фамилия";
+            this.cLastName.Name = "cLastName";
+            this.cLastName.ReadOnly = true;
+            // 
+            // cPartherName
+            // 
+            this.cPartherName.DataPropertyName = "parther_name";
+            this.cPartherName.HeaderText = "Отчество";
+            this.cPartherName.Name = "cPartherName";
+            this.cPartherName.ReadOnly = true;
+            // 
+            // eCar
+            // 
+            this.eCar.DataPropertyName = "e_car";
+            this.eCar.HeaderText = "eCar";
+            this.eCar.Name = "eCar";
+            this.eCar.ReadOnly = true;
+            this.eCar.Visible = false;
             // 
             // frmSDriver
             // 
@@ -245,6 +264,7 @@
             this.Controls.Add(this.pGrid);
             this.Controls.Add(this.pFilter);
             this.Controls.Add(this.pButton);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(320, 460);
             this.MinimizeBox = false;
@@ -277,12 +297,13 @@
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Panel pGrid;
         private System.Windows.Forms.Button tbExit;
+        private System.Windows.Forms.ToolTip ttInfo;
+        private System.Windows.Forms.Label lColorL;
+        private System.Windows.Forms.Panel pColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cId;
         private System.Windows.Forms.DataGridViewTextBoxColumn cFirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPartherName;
-        private System.Windows.Forms.ToolTip ttInfo;
-        private System.Windows.Forms.Label lColorL;
-        private System.Windows.Forms.Panel pColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eCar;
     }
 }

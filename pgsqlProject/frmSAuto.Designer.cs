@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pButton = new System.Windows.Forms.Panel();
             this.tbExit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
@@ -130,6 +131,14 @@
             this.cColor,
             this.cMark,
             this.cPersonnel_id});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.MultiSelect = false;
@@ -143,6 +152,7 @@
             this.dgvData.TabIndex = 0;
             this.dgvData.TabStop = false;
             this.dgvData.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_CellMouseDoubleClick);
+            this.dgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvData_RowPostPaint);
             // 
             // cId
             // 
@@ -233,6 +243,7 @@
             this.Controls.Add(this.pGrid);
             this.Controls.Add(this.pFilter);
             this.Controls.Add(this.pButton);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(320, 460);
             this.MinimizeBox = false;

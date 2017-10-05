@@ -124,5 +124,22 @@ namespace pgsqlProject
             if (e.RowIndex != -1 && config.mode == "АДМ")
                 editAuto();
         }
+
+        private void dgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            if (dgv.Rows[e.RowIndex].Selected)
+            {
+                int width = dgv.Width;
+                Rectangle r = dgv.GetRowDisplayRectangle(e.RowIndex, false);
+                Rectangle rect = new Rectangle(r.X, r.Y, width - 1, r.Height - 1);
+
+                ControlPaint.DrawBorder(e.Graphics, rect,
+                    SystemColors.Highlight, 2, ButtonBorderStyle.Solid,
+                    SystemColors.Highlight, 2, ButtonBorderStyle.Solid,
+                    SystemColors.Highlight, 2, ButtonBorderStyle.Solid,
+                    SystemColors.Highlight, 2, ButtonBorderStyle.Solid);
+            }
+        }
     }
 }
