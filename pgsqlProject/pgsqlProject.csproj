@@ -55,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="config.cs" />
+    <Compile Include="frmAddAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddAuto.Designer.cs">
+      <DependentUpon>frmAddAuto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddDriver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSAuto.Designer.cs">
+      <DependentUpon>frmSAuto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSDriver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +100,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="procedure.cs" />
+    <EmbeddedResource Include="frmAddAuto.resx">
+      <DependentUpon>frmAddAuto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddDriver.resx">
       <DependentUpon>frmAddDriver.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSAuto.resx">
+      <DependentUpon>frmSAuto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSDriver.resx">
       <DependentUpon>frmSDriver.cs</DependentUpon>

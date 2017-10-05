@@ -100,6 +100,38 @@ namespace pgsqlProject
             }
         }
 
+        public DataTable getSAuto()
+        {
+            DataTable dtData = new DataTable();
+            if (openConnect())
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto ORDER BY num", conn);
+                dtData.Load(cmd.ExecuteReader());
+
+                closeConnect();
+            }
+
+            return dtData;
+        }
+
+        public void setSAuto(int id, string num, string color, string mark)
+        {
+            if (openConnect())
+            {
+                string query = "";
+
+                //if (id == -1)
+                //    query = "INSERT INTO public.auto (first_name, last_name, parther_name) VALUES ('" + firstName + "','" + lastName + "','" + partherName + "')";
+                //else
+                //    query = "UPDATE public.auto_personnel SET first_name = '" + firstName + "', last_name = '" + lastName + "', parther_name = '" + partherName + "' where id = " + id + "";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                closeConnect();
+            }
+        }
+
         public bool test()
         {
             bool boolfound = false;

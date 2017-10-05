@@ -81,5 +81,11 @@ namespace pgsqlProject
         {
             closeMDI();
         }
+
+        private void tmsSAuto_Click(object sender, EventArgs e)
+        {
+            frmSAuto frm = new frmSAuto();
+            frm.ShowDialog();
+        }
     }
 }

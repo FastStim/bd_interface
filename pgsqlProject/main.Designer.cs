@@ -41,6 +41,7 @@
             this.sslLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslDatabase = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tmsSAuto = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.ssInfo.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +85,8 @@
             // tmsDirectory
             // 
             this.tmsDirectory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tmsSDriver});
+            this.tmsSDriver,
+            this.tmsSAuto});
             this.tmsDirectory.Name = "tmsDirectory";
             this.tmsDirectory.Size = new System.Drawing.Size(94, 20);
             this.tmsDirectory.Text = "&Справочники";
@@ -92,7 +94,7 @@
             // tmsSDriver
             // 
             this.tmsSDriver.Name = "tmsSDriver";
-            this.tmsSDriver.Size = new System.Drawing.Size(202, 22);
+            this.tmsSDriver.Size = new System.Drawing.Size(219, 22);
             this.tmsSDriver.Text = "Справочник водителей";
             this.tmsSDriver.Click += new System.EventHandler(this.tmsSDriver_Click);
             // 
@@ -145,6 +147,13 @@
             this.sslDatabase.Name = "sslDatabase";
             this.sslDatabase.Size = new System.Drawing.Size(4, 17);
             // 
+            // tmsSAuto
+            // 
+            this.tmsSAuto.Name = "tmsSAuto";
+            this.tmsSAuto.Size = new System.Drawing.Size(219, 22);
+            this.tmsSAuto.Text = "Справочник автомобилей";
+            this.tmsSAuto.Click += new System.EventHandler(this.tmsSAuto_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +191,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmReport;
         private System.Windows.Forms.ToolStripStatusLabel sslMode;
         private System.Windows.Forms.ToolStripMenuItem tmsSDriver;
+        private System.Windows.Forms.ToolStripMenuItem tmsSAuto;
     }
 }
 

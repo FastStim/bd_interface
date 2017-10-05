@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace pgsqlProject
 {
-    public partial class frmSDriver : Form
+    public partial class frmSAuto : Form
     {
         procedure sql = new procedure();
         DataTable dtData;
 
-        public frmSDriver()
+        public frmSAuto()
         {
             InitializeComponent();
 
@@ -25,7 +25,7 @@ namespace pgsqlProject
 
         private void setData()
         {
-            dtData = sql.getSDriver();
+            dtData = sql.getSAuto();
             filter();
 
             dgvData.DataSource = dtData.DefaultView;
@@ -51,9 +51,9 @@ namespace pgsqlProject
         private void filter()
         {
             string filter = "";
-            filter += "first_name like '%" + tbFirstName.Text + "%' ";
-            filter += "and last_name like '%" + tbLastName.Text + "%' ";
-            filter += "and parther_name like '%" + tbPatherName.Text + "%'";
+            filter += "num like '%" + tbNum.Text + "%' ";
+            filter += "and color like '%" + tbColor.Text + "%' ";
+            filter += "and mark like '%" + tbMark.Text + "%'";
 
             dtData.DefaultView.RowFilter = filter;
             dtData.AcceptChanges();
@@ -66,12 +66,12 @@ namespace pgsqlProject
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            addPersonel();
+            addAuto();
         }
 
-        private void addPersonel()
+        private void addAuto()
         {
-            frmAddDriver frm = new frmAddDriver();
+            frmAddAuto frm = new frmAddAuto();
             frm.ShowDialog();
 
             setData();
@@ -79,10 +79,10 @@ namespace pgsqlProject
 
         private void bEdit_Click(object sender, EventArgs e)
         {
-            editPersonnel();
+            editAuto();
         }
 
-        private void editPersonnel()
+        private void editAuto()
         {
             if (dtData != null && dgvData != null && dgvData.RowCount > 0 && dgvData.CurrentRow.Index != -1)
             {
@@ -97,7 +97,7 @@ namespace pgsqlProject
 
         private void tcmsAdd_Click(object sender, EventArgs e)
         {
-            addPersonel();
+            addAuto();
         }
 
         private void bDelete_Click(object sender, EventArgs e)
@@ -122,14 +122,7 @@ namespace pgsqlProject
         private void dgvData_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1 && config.mode == "АДМ")
-                editPersonnel();
-        }
-
-        private void dgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            //dgvData.
-            //dgvData.RowsDefaultCellStyle.ForeColor = pColor.ForeColor;
-            //dgvData.Refresh();
+                editAuto();
         }
     }
 }

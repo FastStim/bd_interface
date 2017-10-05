@@ -1,6 +1,6 @@
 ﻿namespace pgsqlProject
 {
-    partial class frmSDriver
+    partial class frmSAuto
     {
         /// <summary>
         /// Required designer variable.
@@ -36,18 +36,17 @@
             this.bAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPartherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPersonnel_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsData = new System.Windows.Forms.BindingSource(this.components);
             this.pFilter = new System.Windows.Forms.Panel();
-            this.tbPatherName = new System.Windows.Forms.TextBox();
-            this.tbLastName = new System.Windows.Forms.TextBox();
-            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.tbMark = new System.Windows.Forms.TextBox();
+            this.tbColor = new System.Windows.Forms.TextBox();
+            this.tbNum = new System.Windows.Forms.TextBox();
             this.pGrid = new System.Windows.Forms.Panel();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.pColor = new System.Windows.Forms.Panel();
-            this.lColorL = new System.Windows.Forms.Label();
             this.pButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
@@ -57,8 +56,6 @@
             // 
             // pButton
             // 
-            this.pButton.Controls.Add(this.lColorL);
-            this.pButton.Controls.Add(this.pColor);
             this.pButton.Controls.Add(this.tbExit);
             this.pButton.Controls.Add(this.bDelete);
             this.pButton.Controls.Add(this.bEdit);
@@ -129,9 +126,10 @@
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cId,
-            this.cFirstName,
-            this.cLastName,
-            this.cPartherName});
+            this.cNum,
+            this.cColor,
+            this.cMark,
+            this.cPersonnel_id});
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.MultiSelect = false;
@@ -145,7 +143,6 @@
             this.dgvData.TabIndex = 0;
             this.dgvData.TabStop = false;
             this.dgvData.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_CellMouseDoubleClick);
-            this.dgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvData_RowPostPaint);
             // 
             // cId
             // 
@@ -155,61 +152,69 @@
             this.cId.ReadOnly = true;
             this.cId.Visible = false;
             // 
-            // cFirstName
+            // cNum
             // 
-            this.cFirstName.DataPropertyName = "first_name";
-            this.cFirstName.HeaderText = "Имя";
-            this.cFirstName.Name = "cFirstName";
-            this.cFirstName.ReadOnly = true;
+            this.cNum.DataPropertyName = "num";
+            this.cNum.HeaderText = "Номер";
+            this.cNum.Name = "cNum";
+            this.cNum.ReadOnly = true;
             // 
-            // cLastName
+            // cColor
             // 
-            this.cLastName.DataPropertyName = "last_name";
-            this.cLastName.HeaderText = "Фамилия";
-            this.cLastName.Name = "cLastName";
-            this.cLastName.ReadOnly = true;
+            this.cColor.DataPropertyName = "color";
+            this.cColor.HeaderText = "Цвет";
+            this.cColor.Name = "cColor";
+            this.cColor.ReadOnly = true;
             // 
-            // cPartherName
+            // cMark
             // 
-            this.cPartherName.DataPropertyName = "parther_name";
-            this.cPartherName.HeaderText = "Отчество";
-            this.cPartherName.Name = "cPartherName";
-            this.cPartherName.ReadOnly = true;
+            this.cMark.DataPropertyName = "mark";
+            this.cMark.HeaderText = "Марка";
+            this.cMark.Name = "cMark";
+            this.cMark.ReadOnly = true;
+            // 
+            // cPersonnel_id
+            // 
+            this.cPersonnel_id.DataPropertyName = "personnel_id";
+            this.cPersonnel_id.HeaderText = "personnel";
+            this.cPersonnel_id.Name = "cPersonnel_id";
+            this.cPersonnel_id.ReadOnly = true;
+            this.cPersonnel_id.Visible = false;
             // 
             // pFilter
             // 
-            this.pFilter.Controls.Add(this.tbPatherName);
-            this.pFilter.Controls.Add(this.tbLastName);
-            this.pFilter.Controls.Add(this.tbFirstName);
+            this.pFilter.Controls.Add(this.tbMark);
+            this.pFilter.Controls.Add(this.tbColor);
+            this.pFilter.Controls.Add(this.tbNum);
             this.pFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pFilter.Location = new System.Drawing.Point(0, 0);
             this.pFilter.Name = "pFilter";
             this.pFilter.Size = new System.Drawing.Size(304, 34);
             this.pFilter.TabIndex = 1;
             // 
-            // tbPatherName
+            // tbMark
             // 
-            this.tbPatherName.Location = new System.Drawing.Point(205, 8);
-            this.tbPatherName.Name = "tbPatherName";
-            this.tbPatherName.Size = new System.Drawing.Size(95, 20);
-            this.tbPatherName.TabIndex = 3;
-            this.tbPatherName.TextChanged += new System.EventHandler(this.changeFilter);
+            this.tbMark.Location = new System.Drawing.Point(205, 8);
+            this.tbMark.Name = "tbMark";
+            this.tbMark.Size = new System.Drawing.Size(95, 20);
+            this.tbMark.TabIndex = 3;
+            this.tbMark.TextChanged += new System.EventHandler(this.changeFilter);
             // 
-            // tbLastName
+            // tbColor
             // 
-            this.tbLastName.Location = new System.Drawing.Point(104, 8);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(95, 20);
-            this.tbLastName.TabIndex = 2;
-            this.tbLastName.TextChanged += new System.EventHandler(this.changeFilter);
+            this.tbColor.Location = new System.Drawing.Point(104, 8);
+            this.tbColor.Name = "tbColor";
+            this.tbColor.Size = new System.Drawing.Size(95, 20);
+            this.tbColor.TabIndex = 2;
+            this.tbColor.TextChanged += new System.EventHandler(this.changeFilter);
             // 
-            // tbFirstName
+            // tbNum
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(3, 8);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(95, 20);
-            this.tbFirstName.TabIndex = 1;
-            this.tbFirstName.TextChanged += new System.EventHandler(this.changeFilter);
+            this.tbNum.Location = new System.Drawing.Point(3, 8);
+            this.tbNum.Name = "tbNum";
+            this.tbNum.Size = new System.Drawing.Size(95, 20);
+            this.tbNum.TabIndex = 1;
+            this.tbNum.TextChanged += new System.EventHandler(this.changeFilter);
             // 
             // pGrid
             // 
@@ -220,24 +225,7 @@
             this.pGrid.Size = new System.Drawing.Size(304, 347);
             this.pGrid.TabIndex = 2;
             // 
-            // pColor
-            // 
-            this.pColor.BackColor = System.Drawing.Color.DarkKhaki;
-            this.pColor.Location = new System.Drawing.Point(12, 8);
-            this.pColor.Name = "pColor";
-            this.pColor.Size = new System.Drawing.Size(20, 20);
-            this.pColor.TabIndex = 8;
-            // 
-            // lColorL
-            // 
-            this.lColorL.AutoSize = true;
-            this.lColorL.Location = new System.Drawing.Point(38, 5);
-            this.lColorL.Name = "lColorL";
-            this.lColorL.Size = new System.Drawing.Size(89, 26);
-            this.lColorL.TabIndex = 9;
-            this.lColorL.Text = "Водители\r\nбез автомобиля";
-            // 
-            // frmSDriver
+            // frmSAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -249,11 +237,10 @@
             this.MaximumSize = new System.Drawing.Size(320, 460);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(320, 460);
-            this.Name = "frmSDriver";
+            this.Name = "frmSAuto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Справочник водителей";
+            this.Text = "Справочник автомобилей";
             this.pButton.ResumeLayout(false);
-            this.pButton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsData)).EndInit();
             this.pFilter.ResumeLayout(false);
@@ -272,17 +259,16 @@
         private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.Button bEdit;
         private System.Windows.Forms.Panel pFilter;
-        private System.Windows.Forms.TextBox tbPatherName;
-        private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.TextBox tbMark;
+        private System.Windows.Forms.TextBox tbColor;
+        private System.Windows.Forms.TextBox tbNum;
         private System.Windows.Forms.Panel pGrid;
         private System.Windows.Forms.Button tbExit;
         private System.Windows.Forms.DataGridViewTextBoxColumn cId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPartherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPersonnel_id;
         private System.Windows.Forms.ToolTip ttInfo;
-        private System.Windows.Forms.Label lColorL;
-        private System.Windows.Forms.Panel pColor;
     }
 }
