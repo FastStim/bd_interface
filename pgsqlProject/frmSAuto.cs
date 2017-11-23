@@ -127,6 +127,12 @@ namespace pgsqlProject
 
         private void dgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
+            if (dgvData != null && Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["eCar"].Value) == 0)
+            {
+                dgvData.Rows[e.RowIndex].DefaultCellStyle.BackColor = pColor.BackColor;
+                dgvData.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = pColor.BackColor;
+            }
+
             DataGridView dgv = (DataGridView)sender;
             if (dgv.Rows[e.RowIndex].Selected)
             {

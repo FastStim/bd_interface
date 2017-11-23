@@ -14,5 +14,6 @@ namespace pgsqlProject
         public static string database { get; set; }
         public static string port { get; set; }
         public static string mode { get; set; }
+        public static string path { get; set; }
     }
 }

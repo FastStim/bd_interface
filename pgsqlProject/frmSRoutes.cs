@@ -25,7 +25,7 @@ namespace pgsqlProject
 
         private void setData()
         {
-            dtData = sql.getSAuto();
+            dtData = sql.getSRoutes();
             filter();
 
             dgvData.DataSource = dtData.DefaultView;
@@ -51,9 +51,7 @@ namespace pgsqlProject
         private void filter()
         {
             string filter = "";
-            filter += "num like '%" + tbNum.Text + "%' ";
-            filter += "and color like '%" + tbColor.Text + "%' ";
-            filter += "and mark like '%" + tbMark.Text + "%'";
+            filter += "name like '%" + tbName.Text + "%' ";
 
             dtData.DefaultView.RowFilter = filter;
             dtData.AcceptChanges();
@@ -127,6 +125,12 @@ namespace pgsqlProject
 
         private void dgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
+            if (dgvData != null && Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["eJournal"].Value) == 0)
+            {
+                dgvData.Rows[e.RowIndex].DefaultCellStyle.BackColor = pColor.BackColor;
+                dgvData.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = pColor.BackColor;
+            }
+
             DataGridView dgv = (DataGridView)sender;
             if (dgv.Rows[e.RowIndex].Selected)
             {
@@ -140,6 +144,11 @@ namespace pgsqlProject
                     SystemColors.Highlight, 2, ButtonBorderStyle.Solid,
                     SystemColors.Highlight, 2, ButtonBorderStyle.Solid);
             }
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

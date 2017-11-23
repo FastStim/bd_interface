@@ -21,6 +21,9 @@ namespace pgsqlProject
             config.database = Properties.Resources.database;
             config.port = Properties.Resources.port;
             config.mode = "С";
+            config.path = Application.StartupPath;
+
+            
 
             //Проверка работоспособности
             procedure sql = new procedure();

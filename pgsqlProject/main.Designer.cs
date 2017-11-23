@@ -32,6 +32,7 @@
             this.tmsFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsMain = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsSDriver = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsSAuto = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@
             this.sslLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslDatabase = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tmsRide = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.ssInfo.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +53,7 @@
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmsFile,
+            this.tmsMain,
             this.tmsDirectory,
             this.tmsJournal,
             this.tsmReport});
@@ -82,6 +85,13 @@
             this.tsmExit.Size = new System.Drawing.Size(200, 22);
             this.tsmExit.Text = "&Выход";
             this.tsmExit.Click += new System.EventHandler(this.tsmExit_Click);
+            // 
+            // tmsMain
+            // 
+            this.tmsMain.Name = "tmsMain";
+            this.tmsMain.Size = new System.Drawing.Size(63, 20);
+            this.tmsMain.Text = "&Главная";
+            this.tmsMain.Click += new System.EventHandler(this.tmsMain_Click);
             // 
             // tmsDirectory
             // 
@@ -123,6 +133,8 @@
             // 
             // tsmReport
             // 
+            this.tsmReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmsRide});
             this.tsmReport.Name = "tsmReport";
             this.tsmReport.Size = new System.Drawing.Size(60, 20);
             this.tsmReport.Text = "&Отчеты";
@@ -163,6 +175,13 @@
             this.sslDatabase.Name = "sslDatabase";
             this.sslDatabase.Size = new System.Drawing.Size(4, 17);
             // 
+            // tmsRide
+            // 
+            this.tmsRide.Name = "tmsRide";
+            this.tmsRide.Size = new System.Drawing.Size(240, 22);
+            this.tmsRide.Text = "Поездки (предыдущий месяц)";
+            this.tmsRide.Click += new System.EventHandler(this.tmsRide_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,7 +193,7 @@
             this.MainMenuStrip = this.msMenu;
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Главная автопарк";
+            this.Text = "Автопарк";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.main_FormClosing);
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();
@@ -202,6 +221,8 @@
         private System.Windows.Forms.ToolStripMenuItem tmsSDriver;
         private System.Windows.Forms.ToolStripMenuItem tmsSAuto;
         private System.Windows.Forms.ToolStripMenuItem tmsSRoutes;
+        private System.Windows.Forms.ToolStripMenuItem tmsMain;
+        private System.Windows.Forms.ToolStripMenuItem tmsRide;
     }
 }
 

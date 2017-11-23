@@ -104,12 +104,29 @@ namespace pgsqlProject
             }
         }
 
+        public void delSDriver(int id)
+        {
+            if (openConnect())
+            {
+                string query = "";
+
+                query = "DELETE FROM public.auto_personnel WHERE id =" + id;
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                closeConnect();
+            }
+        }
+
         public DataTable getSAuto()
         {
             DataTable dtData = new DataTable();
             if (openConnect())
             {
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.auto ORDER BY num", conn);
+                string query;
+                query = "SELECT a.*, CASE WHEN b.id is null THEN 0 ELSE 1 END e_car FROM public.auto a";
+                query += " LEFT JOIN public.journal b on b.auto_id = a.id";
+                query += " ORDER BY num";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
                 dtData.Load(cmd.ExecuteReader());
 
                 closeConnect();
@@ -134,6 +151,25 @@ namespace pgsqlProject
 
                 closeConnect();
             }
+        }
+
+        public DataTable getSRoutes()
+        {
+            DataTable dtData = new DataTable();
+            if (openConnect())
+            {
+                string query;
+                query = "SELECT a.*, CASE WHEN b.id is null THEN 0 ELSE 1 END e_routes FROM public.routes a";
+                query += " LEFT JOIN public.journal b on b.routes_id = a.id";
+                query += " ORDER BY name";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                dtData.Load(cmd.ExecuteReader());
+
+                closeConnect();
+            }
+
+            return dtData;
         }
 
         public bool test()

@@ -113,7 +113,15 @@ namespace pgsqlProject
 
                 if (MessageBox.Show(message, "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Console.WriteLine("Удаление строки");
+                    if (int.Parse(dtRows.Rows[dgvData.CurrentRow.Index]["e_car"].ToString()) == 1)
+                    {
+                        MessageBox.Show("Нельзя удалить, строка связанна с другой таблицей", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    sql.delSDriver(int.Parse(dtRows.Rows[dgvData.CurrentRow.Index]["id"].ToString()));
+
+                    setData();
                 }
             }
             

@@ -21,7 +21,7 @@ namespace pgsqlProject
 
             setInfo();
 
-            frmJournal frmMDI = new frmJournal();
+            frmMain frmMDI = new frmMain();
             frmMDI.MdiParent = this;
             frmMDI.Show();
         }
@@ -68,11 +68,6 @@ namespace pgsqlProject
 
         private void tmsSDriver_Click(object sender, EventArgs e)
         {
-            //closeMDI();
-
-            //frmSDriver frmMDI = new frmSDriver();
-            //frmMDI.MdiParent = this;
-            //frmMDI.Show();
             frmSDriver frm = new frmSDriver();
             frm.ShowDialog();
         }
@@ -92,6 +87,22 @@ namespace pgsqlProject
         {
             frmSRoutes frm = new frmSRoutes();
             frm.ShowDialog();
+        }
+
+        private void tmsMain_Click(object sender, EventArgs e)
+        {
+            closeMDI();
+
+            frmMain frmMDI = new frmMain();
+            frmMDI.MdiParent = this;
+            frmMDI.Show();
+        }
+
+        private void tmsRide_Click(object sender, EventArgs e)
+        {
+            report.reportRide report = new report.reportRide("report/reportRide.pdf");
+            report.printLastJournal();
+            report.showReport();
         }
     }
 }

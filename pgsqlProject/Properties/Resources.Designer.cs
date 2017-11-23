@@ -127,7 +127,7 @@ namespace pgsqlProject.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 192.168.1.2.
+        ///   Ищет локализованную строку, похожую на 10.0.2.2.
         /// </summary>
         internal static string server {
             get {

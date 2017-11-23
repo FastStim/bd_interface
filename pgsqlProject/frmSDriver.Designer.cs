@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pButton = new System.Windows.Forms.Panel();
             this.lColorL = new System.Windows.Forms.Label();
             this.pColor = new System.Windows.Forms.Panel();
@@ -38,21 +38,19 @@
             this.bEdit = new System.Windows.Forms.Button();
             this.bAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.bsData = new System.Windows.Forms.BindingSource(this.components);
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPartherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pFilter = new System.Windows.Forms.Panel();
             this.tbPatherName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.pGrid = new System.Windows.Forms.Panel();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPartherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
             this.pFilter.SuspendLayout();
             this.pGrid.SuspendLayout();
             this.SuspendLayout();
@@ -152,14 +150,14 @@
             this.cLastName,
             this.cPartherName,
             this.eCar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.MultiSelect = false;
@@ -174,6 +172,43 @@
             this.dgvData.TabStop = false;
             this.dgvData.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_CellMouseDoubleClick);
             this.dgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvData_RowPostPaint);
+            // 
+            // cId
+            // 
+            this.cId.DataPropertyName = "id";
+            this.cId.HeaderText = "id";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Visible = false;
+            // 
+            // cFirstName
+            // 
+            this.cFirstName.DataPropertyName = "first_name";
+            this.cFirstName.HeaderText = "Имя";
+            this.cFirstName.Name = "cFirstName";
+            this.cFirstName.ReadOnly = true;
+            // 
+            // cLastName
+            // 
+            this.cLastName.DataPropertyName = "last_name";
+            this.cLastName.HeaderText = "Фамилия";
+            this.cLastName.Name = "cLastName";
+            this.cLastName.ReadOnly = true;
+            // 
+            // cPartherName
+            // 
+            this.cPartherName.DataPropertyName = "parther_name";
+            this.cPartherName.HeaderText = "Отчество";
+            this.cPartherName.Name = "cPartherName";
+            this.cPartherName.ReadOnly = true;
+            // 
+            // eCar
+            // 
+            this.eCar.DataPropertyName = "e_car";
+            this.eCar.HeaderText = "eCar";
+            this.eCar.Name = "eCar";
+            this.eCar.ReadOnly = true;
+            this.eCar.Visible = false;
             // 
             // pFilter
             // 
@@ -219,43 +254,6 @@
             this.pGrid.Size = new System.Drawing.Size(304, 347);
             this.pGrid.TabIndex = 2;
             // 
-            // cId
-            // 
-            this.cId.DataPropertyName = "id";
-            this.cId.HeaderText = "id";
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Visible = false;
-            // 
-            // cFirstName
-            // 
-            this.cFirstName.DataPropertyName = "first_name";
-            this.cFirstName.HeaderText = "Имя";
-            this.cFirstName.Name = "cFirstName";
-            this.cFirstName.ReadOnly = true;
-            // 
-            // cLastName
-            // 
-            this.cLastName.DataPropertyName = "last_name";
-            this.cLastName.HeaderText = "Фамилия";
-            this.cLastName.Name = "cLastName";
-            this.cLastName.ReadOnly = true;
-            // 
-            // cPartherName
-            // 
-            this.cPartherName.DataPropertyName = "parther_name";
-            this.cPartherName.HeaderText = "Отчество";
-            this.cPartherName.Name = "cPartherName";
-            this.cPartherName.ReadOnly = true;
-            // 
-            // eCar
-            // 
-            this.eCar.DataPropertyName = "e_car";
-            this.eCar.HeaderText = "eCar";
-            this.eCar.Name = "eCar";
-            this.eCar.ReadOnly = true;
-            this.eCar.Visible = false;
-            // 
             // frmSDriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,7 +273,6 @@
             this.pButton.ResumeLayout(false);
             this.pButton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).EndInit();
             this.pFilter.ResumeLayout(false);
             this.pFilter.PerformLayout();
             this.pGrid.ResumeLayout(false);
@@ -287,7 +284,6 @@
 
         private System.Windows.Forms.Panel pButton;
         private System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.BindingSource bsData;
         private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.Button bEdit;

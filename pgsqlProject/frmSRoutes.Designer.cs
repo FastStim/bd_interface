@@ -29,34 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pButton = new System.Windows.Forms.Panel();
             this.tbExit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
             this.bEdit = new System.Windows.Forms.Button();
             this.bAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPersonnel_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsData = new System.Windows.Forms.BindingSource(this.components);
             this.pFilter = new System.Windows.Forms.Panel();
-            this.tbMark = new System.Windows.Forms.TextBox();
-            this.tbColor = new System.Windows.Forms.TextBox();
-            this.tbNum = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.pGrid = new System.Windows.Forms.Panel();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.lColorL = new System.Windows.Forms.Label();
+            this.pColor = new System.Windows.Forms.Panel();
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eJournal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
             this.pFilter.SuspendLayout();
             this.pGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // pButton
             // 
+            this.pButton.Controls.Add(this.lColorL);
+            this.pButton.Controls.Add(this.pColor);
             this.pButton.Controls.Add(this.tbExit);
             this.pButton.Controls.Add(this.bDelete);
             this.pButton.Controls.Add(this.bEdit);
@@ -127,18 +125,16 @@
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cId,
-            this.cNum,
-            this.cColor,
-            this.cMark,
-            this.cPersonnel_id});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cName,
+            this.eJournal});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 0);
             this.dgvData.MultiSelect = false;
@@ -151,80 +147,26 @@
             this.dgvData.Size = new System.Drawing.Size(304, 347);
             this.dgvData.TabIndex = 0;
             this.dgvData.TabStop = false;
+            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_CellMouseDoubleClick);
             this.dgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvData_RowPostPaint);
             // 
-            // cId
-            // 
-            this.cId.DataPropertyName = "id";
-            this.cId.HeaderText = "id";
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Visible = false;
-            // 
-            // cNum
-            // 
-            this.cNum.DataPropertyName = "num";
-            this.cNum.HeaderText = "Номер";
-            this.cNum.Name = "cNum";
-            this.cNum.ReadOnly = true;
-            // 
-            // cColor
-            // 
-            this.cColor.DataPropertyName = "color";
-            this.cColor.HeaderText = "Цвет";
-            this.cColor.Name = "cColor";
-            this.cColor.ReadOnly = true;
-            // 
-            // cMark
-            // 
-            this.cMark.DataPropertyName = "mark";
-            this.cMark.HeaderText = "Марка";
-            this.cMark.Name = "cMark";
-            this.cMark.ReadOnly = true;
-            // 
-            // cPersonnel_id
-            // 
-            this.cPersonnel_id.DataPropertyName = "personnel_id";
-            this.cPersonnel_id.HeaderText = "personnel";
-            this.cPersonnel_id.Name = "cPersonnel_id";
-            this.cPersonnel_id.ReadOnly = true;
-            this.cPersonnel_id.Visible = false;
-            // 
             // pFilter
             // 
-            this.pFilter.Controls.Add(this.tbMark);
-            this.pFilter.Controls.Add(this.tbColor);
-            this.pFilter.Controls.Add(this.tbNum);
+            this.pFilter.Controls.Add(this.tbName);
             this.pFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pFilter.Location = new System.Drawing.Point(0, 0);
             this.pFilter.Name = "pFilter";
             this.pFilter.Size = new System.Drawing.Size(304, 34);
             this.pFilter.TabIndex = 1;
             // 
-            // tbMark
+            // tbName
             // 
-            this.tbMark.Location = new System.Drawing.Point(205, 8);
-            this.tbMark.Name = "tbMark";
-            this.tbMark.Size = new System.Drawing.Size(95, 20);
-            this.tbMark.TabIndex = 3;
-            this.tbMark.TextChanged += new System.EventHandler(this.changeFilter);
-            // 
-            // tbColor
-            // 
-            this.tbColor.Location = new System.Drawing.Point(104, 8);
-            this.tbColor.Name = "tbColor";
-            this.tbColor.Size = new System.Drawing.Size(95, 20);
-            this.tbColor.TabIndex = 2;
-            this.tbColor.TextChanged += new System.EventHandler(this.changeFilter);
-            // 
-            // tbNum
-            // 
-            this.tbNum.Location = new System.Drawing.Point(3, 8);
-            this.tbNum.Name = "tbNum";
-            this.tbNum.Size = new System.Drawing.Size(95, 20);
-            this.tbNum.TabIndex = 1;
-            this.tbNum.TextChanged += new System.EventHandler(this.changeFilter);
+            this.tbName.Location = new System.Drawing.Point(3, 8);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(297, 20);
+            this.tbName.TabIndex = 1;
+            this.tbName.TextChanged += new System.EventHandler(this.changeFilter);
             // 
             // pGrid
             // 
@@ -235,7 +177,49 @@
             this.pGrid.Size = new System.Drawing.Size(304, 347);
             this.pGrid.TabIndex = 2;
             // 
-            // frmSAuto
+            // lColorL
+            // 
+            this.lColorL.AutoSize = true;
+            this.lColorL.Location = new System.Drawing.Point(38, 5);
+            this.lColorL.Name = "lColorL";
+            this.lColorL.Size = new System.Drawing.Size(97, 26);
+            this.lColorL.TabIndex = 13;
+            this.lColorL.Text = "Путь не привязан\r\nк журналу";
+            // 
+            // pColor
+            // 
+            this.pColor.BackColor = System.Drawing.Color.DarkKhaki;
+            this.pColor.Location = new System.Drawing.Point(12, 8);
+            this.pColor.Name = "pColor";
+            this.pColor.Size = new System.Drawing.Size(20, 20);
+            this.pColor.TabIndex = 12;
+            // 
+            // cId
+            // 
+            this.cId.DataPropertyName = "id";
+            this.cId.HeaderText = "id";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Visible = false;
+            // 
+            // cName
+            // 
+            this.cName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cName.DataPropertyName = "name";
+            this.cName.HeaderText = "Имя";
+            this.cName.MinimumWidth = 100;
+            this.cName.Name = "cName";
+            this.cName.ReadOnly = true;
+            // 
+            // eJournal
+            // 
+            this.eJournal.DataPropertyName = "e_routes";
+            this.eJournal.HeaderText = "eJournal";
+            this.eJournal.Name = "eJournal";
+            this.eJournal.ReadOnly = true;
+            this.eJournal.Visible = false;
+            // 
+            // frmSRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -248,12 +232,12 @@
             this.MaximumSize = new System.Drawing.Size(320, 460);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(320, 460);
-            this.Name = "frmSAuto";
+            this.Name = "frmSRoutes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Справочник автомобилей";
+            this.Text = "Справочник маршрутов";
             this.pButton.ResumeLayout(false);
+            this.pButton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).EndInit();
             this.pFilter.ResumeLayout(false);
             this.pFilter.PerformLayout();
             this.pGrid.ResumeLayout(false);
@@ -265,21 +249,18 @@
 
         private System.Windows.Forms.Panel pButton;
         private System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.BindingSource bsData;
         private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.Button bEdit;
         private System.Windows.Forms.Panel pFilter;
-        private System.Windows.Forms.TextBox tbMark;
-        private System.Windows.Forms.TextBox tbColor;
-        private System.Windows.Forms.TextBox tbNum;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Panel pGrid;
         private System.Windows.Forms.Button tbExit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cMark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPersonnel_id;
         private System.Windows.Forms.ToolTip ttInfo;
+        private System.Windows.Forms.Label lColorL;
+        private System.Windows.Forms.Panel pColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eJournal;
     }
 }
