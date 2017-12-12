@@ -16,15 +16,6 @@ namespace pgsqlProject
         [STAThread]
         static void Main()
         {
-            //Стандартные настройки программы при запуске
-            //config.server = Properties.Resources.server;
-            //config.login = Properties.Resources.login;
-            //config.password = Properties.Resources.password;
-            //config.database = Properties.Resources.database;
-            //config.port = Properties.Resources.port;
-            //config.mode = "С";
-            //config.path = Application.StartupPath;
-
             //ini file
             try
             {
