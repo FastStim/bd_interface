@@ -61,6 +61,16 @@ namespace pgsqlProject.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_square_o {
+            get {
+                object obj = ResourceManager.GetObject("check_square_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на carpark.
         /// </summary>
         internal static string database {
@@ -75,6 +85,16 @@ namespace pgsqlProject.Properties {
         internal static System.Drawing.Bitmap edit_32 {
             get {
                 object obj = ResourceManager.GetObject("edit_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gif {
+            get {
+                object obj = ResourceManager.GetObject("gif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -127,7 +147,7 @@ namespace pgsqlProject.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 10.0.2.2.
+        ///   Ищет локализованную строку, похожую на 192.168.1.2.
         /// </summary>
         internal static string server {
             get {

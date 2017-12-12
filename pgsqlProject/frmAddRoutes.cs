@@ -10,37 +10,24 @@ using System.Windows.Forms;
 
 namespace pgsqlProject
 {
-    public partial class frmAddAuto : Form
+    public partial class frmAddRoutes : Form
     {
         int id = -1;
         bool change = false;
         procedure sql = new procedure();
 
-        public frmAddAuto()
+        public frmAddRoutes()
         {
             InitializeComponent();
 
-            this.Text = "Добавить водителя";
-
-            DataTable dtDrivers = sql.getListAllDriver();
-            cbDriver.DataSource = dtDrivers;
-            cbDriver.DisplayMember = "name";
-            cbDriver.ValueMember = "id";
+            this.Text = "Добавить маршрут";
         }
 
-        public frmAddAuto(DataRow row)
+        public frmAddRoutes(DataRow row)
         {
             InitializeComponent();
 
-            this.Text = "Редактировать водителя";
-
-            tbNum.Enabled = false;
-
-            DataTable dtDrivers = sql.getListAllDriver();
-            cbDriver.DataSource = dtDrivers;
-            cbDriver.DisplayMember = "name";
-            cbDriver.ValueMember = "id";
-
+            this.Text = "Редактировать маршрут";
             setInfo(row);
 
             change = false;
@@ -59,11 +46,7 @@ namespace pgsqlProject
         private void setInfo(DataRow row)
         {
             id = (int)row["id"];
-            tbNum.Text = row["num"].ToString();
-            tbColor.Text = row["color"].ToString();
-            tbMark.Text = row["mark"].ToString();
-
-            cbDriver.SelectedValue = Convert.ToInt32(row["personnel_id"].ToString());
+            tbName.Text = row["name"].ToString();
         }
 
         private void bSave_Click(object sender, EventArgs e)
@@ -87,7 +70,7 @@ namespace pgsqlProject
 
         private void save()
         {
-            sql.setSAuto(id, tbNum.Text, tbColor.Text, tbMark.Text, Convert.ToInt32(cbDriver.SelectedValue));
+            sql.setSRoutes(id, tbName.Text);
         }
     }
 }

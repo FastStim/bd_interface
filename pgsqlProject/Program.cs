@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IniParser;
+using IniParser.Model;
 
 namespace pgsqlProject
 {
@@ -15,14 +17,32 @@ namespace pgsqlProject
         static void Main()
         {
             //Стандартные настройки программы при запуске
-            config.server = Properties.Resources.server;
-            config.login = Properties.Resources.login;
-            config.password = Properties.Resources.password;
-            config.database = Properties.Resources.database;
-            config.port = Properties.Resources.port;
-            config.mode = "С";
-            config.path = Application.StartupPath;
+            //config.server = Properties.Resources.server;
+            //config.login = Properties.Resources.login;
+            //config.password = Properties.Resources.password;
+            //config.database = Properties.Resources.database;
+            //config.port = Properties.Resources.port;
+            //config.mode = "С";
+            //config.path = Application.StartupPath;
 
+            //ini file
+            try
+            {
+                var parser = new FileIniDataParser();
+                IniData f = parser.ReadFile("config.ini");
+                config.server = f["config"]["server"];
+                config.login = f["config"]["login"];
+                config.password = f["config"]["password"];
+                config.database = f["config"]["database"];
+                config.port = f["config"]["port"];
+                config.mode = "С";
+                config.path = Application.StartupPath;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка подключения", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             
 
             //Проверка работоспособности

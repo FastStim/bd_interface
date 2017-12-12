@@ -39,12 +39,12 @@
             this.tmsSRoutes = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsJournal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsRide = new System.Windows.Forms.ToolStripMenuItem();
             this.ssInfo = new System.Windows.Forms.StatusStrip();
             this.sslMode = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslDatabase = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tmsRide = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.ssInfo.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             this.tsmReport});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
-            this.msMenu.Size = new System.Drawing.Size(624, 24);
+            this.msMenu.Size = new System.Drawing.Size(907, 24);
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "menuStrip1";
             // 
@@ -139,6 +139,13 @@
             this.tsmReport.Size = new System.Drawing.Size(60, 20);
             this.tsmReport.Text = "&Отчеты";
             // 
+            // tmsRide
+            // 
+            this.tmsRide.Name = "tmsRide";
+            this.tmsRide.Size = new System.Drawing.Size(240, 22);
+            this.tmsRide.Text = "Поездки (предыдущий месяц)";
+            this.tmsRide.Click += new System.EventHandler(this.tmsRide_Click);
+            // 
             // ssInfo
             // 
             this.ssInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -146,9 +153,9 @@
             this.sslLogin,
             this.sslServer,
             this.sslDatabase});
-            this.ssInfo.Location = new System.Drawing.Point(0, 419);
+            this.ssInfo.Location = new System.Drawing.Point(0, 500);
             this.ssInfo.Name = "ssInfo";
-            this.ssInfo.Size = new System.Drawing.Size(624, 22);
+            this.ssInfo.Size = new System.Drawing.Size(907, 22);
             this.ssInfo.TabIndex = 1;
             // 
             // sslMode
@@ -175,18 +182,11 @@
             this.sslDatabase.Name = "sslDatabase";
             this.sslDatabase.Size = new System.Drawing.Size(4, 17);
             // 
-            // tmsRide
-            // 
-            this.tmsRide.Name = "tmsRide";
-            this.tmsRide.Size = new System.Drawing.Size(240, 22);
-            this.tmsRide.Text = "Поездки (предыдущий месяц)";
-            this.tmsRide.Click += new System.EventHandler(this.tmsRide_Click);
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(907, 522);
             this.Controls.Add(this.ssInfo);
             this.Controls.Add(this.msMenu);
             this.IsMdiContainer = true;

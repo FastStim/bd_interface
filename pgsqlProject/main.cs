@@ -44,6 +44,12 @@ namespace pgsqlProject
             frmLogin frm = new frmLogin();
             frm.ShowDialog();
 
+            closeMDI();
+
+            frmMain frmMDI = new frmMain();
+            frmMDI.MdiParent = this;
+            frmMDI.Show();
+
             setInfo();
         }
 

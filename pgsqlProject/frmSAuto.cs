@@ -88,7 +88,7 @@ namespace pgsqlProject
             {
                 DataTable dtRows = dtData.DefaultView.ToTable();
 
-                frmAddDriver frm = new frmAddDriver(dtRows.Rows[dgvData.CurrentRow.Index]);
+                frmAddAuto frm = new frmAddAuto(dtRows.Rows[dgvData.CurrentRow.Index]);
                 frm.ShowDialog();
 
                 setData();
@@ -107,13 +107,21 @@ namespace pgsqlProject
                 DataTable dtRows = dtData.DefaultView.ToTable();
 
                 string message = "Удалить ";
-                message += dtRows.Rows[dgvData.CurrentRow.Index]["first_name"].ToString() + " ";
-                message += dtRows.Rows[dgvData.CurrentRow.Index]["last_name"].ToString() + " ";
-                message += dtRows.Rows[dgvData.CurrentRow.Index]["parther_name"].ToString() + " ";
+                message += dtRows.Rows[dgvData.CurrentRow.Index]["num"].ToString() + " ";
+                message += dtRows.Rows[dgvData.CurrentRow.Index]["color"].ToString() + " ";
+                message += dtRows.Rows[dgvData.CurrentRow.Index]["mark"].ToString() + " ";
 
                 if (MessageBox.Show(message, "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Console.WriteLine("Удаление строки");
+                    if (int.Parse(dtRows.Rows[dgvData.CurrentRow.Index]["e_car"].ToString()) == 1)
+                    {
+                        MessageBox.Show("Нельзя удалить, строка связанна с другой таблицей", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    sql.delSAuto(int.Parse(dtRows.Rows[dgvData.CurrentRow.Index]["id"].ToString()));
+
+                    setData();
                 }
             }
             

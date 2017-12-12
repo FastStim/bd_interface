@@ -64,12 +64,12 @@ namespace pgsqlProject
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            addAuto();
+            addRoutes();
         }
 
-        private void addAuto()
+        private void addRoutes()
         {
-            frmAddAuto frm = new frmAddAuto();
+            frmAddRoutes frm = new frmAddRoutes();
             frm.ShowDialog();
 
             setData();
@@ -77,16 +77,16 @@ namespace pgsqlProject
 
         private void bEdit_Click(object sender, EventArgs e)
         {
-            editAuto();
+            editRoutes();
         }
 
-        private void editAuto()
+        private void editRoutes()
         {
             if (dtData != null && dgvData != null && dgvData.RowCount > 0 && dgvData.CurrentRow.Index != -1)
             {
                 DataTable dtRows = dtData.DefaultView.ToTable();
 
-                frmAddDriver frm = new frmAddDriver(dtRows.Rows[dgvData.CurrentRow.Index]);
+                frmAddRoutes frm = new frmAddRoutes(dtRows.Rows[dgvData.CurrentRow.Index]);
                 frm.ShowDialog();
 
                 setData();
@@ -95,7 +95,7 @@ namespace pgsqlProject
 
         private void tcmsAdd_Click(object sender, EventArgs e)
         {
-            addAuto();
+            addRoutes();
         }
 
         private void bDelete_Click(object sender, EventArgs e)
@@ -105,22 +105,28 @@ namespace pgsqlProject
                 DataTable dtRows = dtData.DefaultView.ToTable();
 
                 string message = "Удалить ";
-                message += dtRows.Rows[dgvData.CurrentRow.Index]["first_name"].ToString() + " ";
-                message += dtRows.Rows[dgvData.CurrentRow.Index]["last_name"].ToString() + " ";
-                message += dtRows.Rows[dgvData.CurrentRow.Index]["parther_name"].ToString() + " ";
+                message += dtRows.Rows[dgvData.CurrentRow.Index]["name"].ToString() + " ";
 
                 if (MessageBox.Show(message, "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Console.WriteLine("Удаление строки");
+                    if (int.Parse(dtRows.Rows[dgvData.CurrentRow.Index]["e_routes"].ToString()) == 1)
+                    {
+                        MessageBox.Show("Нельзя удалить, строка связанна с другой таблицей", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    sql.delSRoutes(int.Parse(dtRows.Rows[dgvData.CurrentRow.Index]["id"].ToString()));
+
+                    setData();
                 }
             }
-            
+
         }
 
         private void dgvData_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1 && config.mode == "АДМ")
-                editAuto();
+                editRoutes();
         }
 
         private void dgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -144,11 +150,6 @@ namespace pgsqlProject
                     SystemColors.Highlight, 2, ButtonBorderStyle.Solid,
                     SystemColors.Highlight, 2, ButtonBorderStyle.Solid);
             }
-        }
-
-        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

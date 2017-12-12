@@ -41,3 +41,9 @@ C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProj
 C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\obj\Debug\pgsqlProject.frmMain.resources
 C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\itextsharp.dll
 C:\Users\User\Desktop\C++\faststim\pgsqlProject\pgsqlProject\bin\Debug\itextsharp.xml
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\bin\Debug\itextsharp.dll
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\bin\Debug\itextsharp.xml
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmMain.resources
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\obj\Debug\pgsqlProject.frmAddRoutes.resources
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\bin\Debug\INIFileParser.dll
+C:\Users\FastStim1\Desktop\bd_interface\pgsqlProject\bin\Debug\INIFileParser.xml

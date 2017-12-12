@@ -31,20 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pButton = new System.Windows.Forms.Panel();
+            this.lColorL = new System.Windows.Forms.Label();
+            this.pColor = new System.Windows.Forms.Panel();
             this.tbExit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
             this.bEdit = new System.Windows.Forms.Button();
             this.bAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eJournal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pFilter = new System.Windows.Forms.Panel();
             this.tbName = new System.Windows.Forms.TextBox();
             this.pGrid = new System.Windows.Forms.Panel();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.lColorL = new System.Windows.Forms.Label();
-            this.pColor = new System.Windows.Forms.Panel();
-            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eJournal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.pFilter.SuspendLayout();
@@ -64,6 +64,23 @@
             this.pButton.Name = "pButton";
             this.pButton.Size = new System.Drawing.Size(304, 40);
             this.pButton.TabIndex = 99;
+            // 
+            // lColorL
+            // 
+            this.lColorL.AutoSize = true;
+            this.lColorL.Location = new System.Drawing.Point(38, 5);
+            this.lColorL.Name = "lColorL";
+            this.lColorL.Size = new System.Drawing.Size(97, 26);
+            this.lColorL.TabIndex = 13;
+            this.lColorL.Text = "Путь не привязан\r\nк журналу";
+            // 
+            // pColor
+            // 
+            this.pColor.BackColor = System.Drawing.Color.DarkKhaki;
+            this.pColor.Location = new System.Drawing.Point(12, 8);
+            this.pColor.Name = "pColor";
+            this.pColor.Size = new System.Drawing.Size(20, 20);
+            this.pColor.TabIndex = 12;
             // 
             // tbExit
             // 
@@ -147,9 +164,33 @@
             this.dgvData.Size = new System.Drawing.Size(304, 347);
             this.dgvData.TabIndex = 0;
             this.dgvData.TabStop = false;
-            this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvData_CellMouseDoubleClick);
             this.dgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvData_RowPostPaint);
+            // 
+            // cId
+            // 
+            this.cId.DataPropertyName = "id";
+            this.cId.HeaderText = "id";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Visible = false;
+            // 
+            // cName
+            // 
+            this.cName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cName.DataPropertyName = "name";
+            this.cName.HeaderText = "Имя";
+            this.cName.MinimumWidth = 100;
+            this.cName.Name = "cName";
+            this.cName.ReadOnly = true;
+            // 
+            // eJournal
+            // 
+            this.eJournal.DataPropertyName = "e_routes";
+            this.eJournal.HeaderText = "eJournal";
+            this.eJournal.Name = "eJournal";
+            this.eJournal.ReadOnly = true;
+            this.eJournal.Visible = false;
             // 
             // pFilter
             // 
@@ -176,48 +217,6 @@
             this.pGrid.Name = "pGrid";
             this.pGrid.Size = new System.Drawing.Size(304, 347);
             this.pGrid.TabIndex = 2;
-            // 
-            // lColorL
-            // 
-            this.lColorL.AutoSize = true;
-            this.lColorL.Location = new System.Drawing.Point(38, 5);
-            this.lColorL.Name = "lColorL";
-            this.lColorL.Size = new System.Drawing.Size(97, 26);
-            this.lColorL.TabIndex = 13;
-            this.lColorL.Text = "Путь не привязан\r\nк журналу";
-            // 
-            // pColor
-            // 
-            this.pColor.BackColor = System.Drawing.Color.DarkKhaki;
-            this.pColor.Location = new System.Drawing.Point(12, 8);
-            this.pColor.Name = "pColor";
-            this.pColor.Size = new System.Drawing.Size(20, 20);
-            this.pColor.TabIndex = 12;
-            // 
-            // cId
-            // 
-            this.cId.DataPropertyName = "id";
-            this.cId.HeaderText = "id";
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Visible = false;
-            // 
-            // cName
-            // 
-            this.cName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cName.DataPropertyName = "name";
-            this.cName.HeaderText = "Имя";
-            this.cName.MinimumWidth = 100;
-            this.cName.Name = "cName";
-            this.cName.ReadOnly = true;
-            // 
-            // eJournal
-            // 
-            this.eJournal.DataPropertyName = "e_routes";
-            this.eJournal.HeaderText = "eJournal";
-            this.eJournal.Name = "eJournal";
-            this.eJournal.ReadOnly = true;
-            this.eJournal.Visible = false;
             // 
             // frmSRoutes
             // 
