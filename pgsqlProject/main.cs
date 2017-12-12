@@ -110,5 +110,12 @@ namespace pgsqlProject
             report.printLastJournal();
             report.showReport();
         }
+
+        private void tsmPrem_Click(object sender, EventArgs e)
+        {
+            report.reportRide report = new report.reportRide("report/reportPrem.pdf");
+            report.printPrem();
+            report.showReport();
+        }
     }
 }

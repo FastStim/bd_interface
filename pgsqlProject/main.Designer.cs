@@ -45,6 +45,7 @@
             this.sslLogin = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.sslDatabase = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsmPrem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.ssInfo.SuspendLayout();
             this.SuspendLayout();
@@ -134,7 +135,8 @@
             // tsmReport
             // 
             this.tsmReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tmsRide});
+            this.tmsRide,
+            this.tsmPrem});
             this.tsmReport.Name = "tsmReport";
             this.tsmReport.Size = new System.Drawing.Size(60, 20);
             this.tsmReport.Text = "&Отчеты";
@@ -143,7 +145,7 @@
             // 
             this.tmsRide.Name = "tmsRide";
             this.tmsRide.Size = new System.Drawing.Size(240, 22);
-            this.tmsRide.Text = "Поездки (предыдущий месяц)";
+            this.tmsRide.Text = "Поездки за последние 30 дней";
             this.tmsRide.Click += new System.EventHandler(this.tmsRide_Click);
             // 
             // ssInfo
@@ -181,6 +183,13 @@
             this.sslDatabase.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.sslDatabase.Name = "sslDatabase";
             this.sslDatabase.Size = new System.Drawing.Size(4, 17);
+            // 
+            // tsmPrem
+            // 
+            this.tsmPrem.Name = "tsmPrem";
+            this.tsmPrem.Size = new System.Drawing.Size(240, 22);
+            this.tsmPrem.Text = "Премиальные";
+            this.tsmPrem.Click += new System.EventHandler(this.tsmPrem_Click);
             // 
             // main
             // 
@@ -223,6 +232,7 @@
         private System.Windows.Forms.ToolStripMenuItem tmsSRoutes;
         private System.Windows.Forms.ToolStripMenuItem tmsMain;
         private System.Windows.Forms.ToolStripMenuItem tmsRide;
+        private System.Windows.Forms.ToolStripMenuItem tsmPrem;
     }
 }
 

@@ -258,6 +258,45 @@ namespace pgsqlProject
             return dtData;
         }
 
+        public DataTable getLastJournal()
+        {
+            DataTable dtData = new DataTable();
+            if (openConnect())
+            {
+                string query;
+                query = "SELECT a.id, a.time_in, a.time_out, b.num, b.color, b.mark, c.first_name, c.last_name, c.parther_name, d.name FROM public.journal a";
+                query += " LEFT JOIN public.auto b on b.id = a.auto_id";
+                query += " LEFT JOIN public.auto_personnel c on c.id = b.personnel_id";
+                query += " LEFT JOIN public.routes d on d.id = a.routes_id";
+                query += " WHERE a.time_in > '" + DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd") + "' and a.time_out > '" + DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd") + "'";
+                query += " ORDER BY a.time_out";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                dtData.Load(cmd.ExecuteReader());
+
+                closeConnect();
+            }
+
+            return dtData;
+        }
+        
+        public DataTable getPrem()
+        {
+            DataTable dtData = new DataTable();
+            if (openConnect())
+            {
+                string query;
+                query = "SELECT public.getprem('"+ DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")  + "', '" + DateTime.Now.AddDays(+1).ToString("yyyy-MM-dd") + "', 30000)";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+                dtData.Load(cmd.ExecuteReader());
+
+                closeConnect();
+            }
+
+            return dtData;
+        }
+
         public DataTable getListDriver()
         {
             DataTable dtData = new DataTable();

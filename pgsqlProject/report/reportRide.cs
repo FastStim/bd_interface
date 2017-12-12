@@ -8,11 +8,13 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
+using System.Data;
 
 namespace pgsqlProject.report
 {
     public class reportRide
     {
+        procedure sql = new procedure();
         private string fileName = "";
         private Font font;
         private Document doc;
@@ -25,8 +27,21 @@ namespace pgsqlProject.report
 
         public void printLastJournal()
         {
+            DataTable dtJ = sql.getLastJournal();
             createDocument();
-            headerReport("test");
+            headerReport("Отчет поездок за прошедший месяц");
+            doc.Add(Chunk.NEWLINE);
+            bodyLastReport(dtJ);
+            closeDocument();
+        }
+
+        public void printPrem()
+        {
+            DataTable dtP = sql.getPrem();
+            createDocument();
+            headerReport("Отчет по примиальным за последние 2 месяца");
+            doc.Add(Chunk.NEWLINE);
+            bodyPremReport(dtP);
             closeDocument();
         }
 
@@ -62,8 +77,38 @@ namespace pgsqlProject.report
             doc.AddCreator("Алексеев Егор");
             doc.AddAuthor("Алексеев Егор");
             doc.AddHeader(title, title);
+            doc.Add(new Paragraph(title, font));
+        }
 
-            doc.Add(new Paragraph(@"Тест отчетиков", font));
+        private void bodyLastReport(DataTable dt)
+        {
+            PdfPTable table = new PdfPTable(6);
+
+            table.AddCell(new Phrase("Время отбытия", font));
+            table.AddCell(new Phrase("Время прибытия", font));
+            table.AddCell(new Phrase("Номер авто", font));
+            table.AddCell(new Phrase("Имя", font));
+            table.AddCell(new Phrase("Фамилия", font));
+            table.AddCell(new Phrase("Маршрут", font));
+
+            foreach (DataRow d in dt.Rows)
+            { 
+                table.AddCell(new Phrase(d["time_in"].ToString(), font));
+                table.AddCell(new Phrase(d["time_out"].ToString(), font));
+                table.AddCell(new Phrase(d["num"].ToString(), font));
+                table.AddCell(new Phrase(d["first_name"].ToString(), font));
+                table.AddCell(new Phrase(d["last_name"].ToString(), font));
+                table.AddCell(new Phrase(d["name"].ToString(), font));
+            }
+            doc.Add(table);
+        }
+
+        private void bodyPremReport(DataTable dt)
+        {
+            if (dt != null && dt.Rows.Count > 0 && dt.Rows[0]["getprem"] != DBNull.Value)
+                doc.Add(new Paragraph(dt.Rows[0]["getprem"].ToString(), font));
+            else
+                doc.Add(new Paragraph("В последних двух месяцах не было премий", font));
         }
     }
 }
