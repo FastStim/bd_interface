@@ -17,6 +17,7 @@ namespace pgsqlProject.report
         procedure sql = new procedure();
         private string fileName = "";
         private Font font;
+        BaseFont baseFont;
         private Document doc;
 
         public reportRide(string fileName)
@@ -60,8 +61,8 @@ namespace pgsqlProject.report
 
         private void pageConfig()
         {
-            BaseFont baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-            font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
+            baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            font = new Font(baseFont, 8, Font.NORMAL);
         }
 
         private void closeDocument()
@@ -77,11 +78,15 @@ namespace pgsqlProject.report
             doc.AddCreator("Алексеев Егор");
             doc.AddAuthor("Алексеев Егор");
             doc.AddHeader(title, title);
+            font = new Font(baseFont, 20, Font.NORMAL);
             doc.Add(new Paragraph(title, font));
+            font = new Font(baseFont, 12, Font.NORMAL);
+            doc.Add(new Paragraph(DateTime.Now.ToString("yyyy-MM-dd"), font));
         }
 
         private void bodyLastReport(DataTable dt)
         {
+            font = new Font(baseFont, 8, Font.NORMAL);
             PdfPTable table = new PdfPTable(6);
 
             table.AddCell(new Phrase("Время отбытия", font));
@@ -105,6 +110,7 @@ namespace pgsqlProject.report
 
         private void bodyPremReport(DataTable dt)
         {
+            font = new Font(baseFont, 8, Font.NORMAL);
             if (dt != null && dt.Rows.Count > 0 && dt.Rows[0]["getprem"] != DBNull.Value)
                 doc.Add(new Paragraph(dt.Rows[0]["getprem"].ToString(), font));
             else
